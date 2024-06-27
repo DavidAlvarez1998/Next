@@ -13,7 +13,7 @@ interface Props {
 const Title = () => {
     return (
         <div>
-            totuloss
+            Title
         </div>
     )
 }
