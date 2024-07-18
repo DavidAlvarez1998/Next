@@ -1,3 +1,5 @@
+
+import { Sidebar } from "@/components";
 import TopMenu from "@/components/ui/top-menu/TopMenu";
 import React from "react";
 
@@ -8,8 +10,11 @@ export default function ShopLayout({ children }: {
     return (
         <main className="min-h-screen bg-gray-200">
             <TopMenu />
-            {children}
+            <Sidebar />
 
+            <div className="px-0 sm:px-10">
+                {children}
+            </div>
         </main>
     )
 }
