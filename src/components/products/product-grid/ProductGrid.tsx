@@ -17,7 +17,7 @@ const ProductGrid = ({ products }: Props) => {
             {
                 products.map(product => (
                     <ProductGridItem
-                        key={product.slug}
+                        key={product.id}
                         product={product}
 
                     />

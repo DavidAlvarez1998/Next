@@ -2,22 +2,40 @@
 
 import ProductGrid from "@/components/products/product-grid/ProductGrid";
 import Title from "@/components/ui/title/Title";
-import { initialData } from "@/seed/seed";
+import { Product } from "@/interfaces";
+//import { initialData } from "@/seed/seed";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 
 
+interface Props {
+  product: Product;
+}
 
-const productos = initialData.products
+
+
+
 
 export default function Home() {
-  const [contador, setContador] = useState(0);
+
+  const url = 'https://api.escuelajs.co/api/v1/products';
+
+
+
+
+  const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    if (contador >= 10 || contador <= -10) {
-      setContador(0);
-    }
-  }, [contador]);
+
+    axios.get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error('Hubo un error al hacer la solicitud:', error);
+      });
+  }, []);
 
 
 
@@ -30,18 +48,8 @@ export default function Home() {
         className="mb-2"
       />
 
-
-      <div>
-        <button onClick={() => setContador(contador + 1)}>clickMe +</button>
-      </div>
-      <div>
-        <button onClick={() => setContador(contador - 1)}>clickMe -</button>
-      </div>
-      <div>
-        {contador}
-      </div>
       <ProductGrid
-        products={productos} />
+        products={data} />
 
     </>
 

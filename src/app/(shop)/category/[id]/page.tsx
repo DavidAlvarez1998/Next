@@ -2,7 +2,7 @@
 
 import ProductGrid from "@/components/products/product-grid/ProductGrid";
 import Title from "@/components/ui/title/Title";
-import { Category } from "@/interfaces";
+import { Product } from "@/interfaces";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
 
@@ -11,17 +11,17 @@ const seedProducts = initialData.products;
 
 interface Props {
     params: {
-        id: Category;
+        id: Product;
 
     }
 }
 
 
-export default function ({ params }: Props) {
+const producId = ({ params }: Props) => {
 
 
     const { id } = params;
-    const products = seedProducts.filter(product => product.gender === id);
+    const products = seedProducts.filter(product => product. === id);
 
     const labels: Record<Category, string> = {
         'men': 'para hombres',

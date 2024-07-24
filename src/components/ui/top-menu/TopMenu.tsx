@@ -1,14 +1,18 @@
 'use client';
 
-import { titleFonts } from '@/config/fonts'
+import { titleFonts } from '@/config/fonts';
+import { Product } from '@/interfaces';
 import { useUIStore } from '@/store';
-
-import Link from 'next/link'
-import React from 'react'
+import Link from 'next/link';
+import React from 'react';
 import { IoIosPhoneLandscape } from 'react-icons/io';
 import { IoSearchOutline, IoCartOutline } from 'react-icons/io5';
 
-const TopMenu = () => {
+interface Props {
+    product: Product;
+}
+
+const TopMenu = ({ product }: Props) => {
 
     const openMenu = useUIStore(state => state.openSideMenu);
 
