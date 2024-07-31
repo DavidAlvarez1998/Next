@@ -56,7 +56,7 @@ const ProductGridItem = ({ product }: Props) => {
 
                     <CardContent>
 
-                        <Link href={`/produc/${product.id}`}  >
+                        <Link href={`/product/${product.id}`}  >
                             <Typography gutterBottom variant="h5" component="div" className=" hover:text-blue-700">
                                 {product.title}
                             </Typography>
